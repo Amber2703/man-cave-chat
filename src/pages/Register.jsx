@@ -26,7 +26,7 @@ const navigate = useNavigate();
 
       uploadTask.on(
         (error) => {
-          console.error(error);
+          // console.error(error);
           setErr(true);
         }, 
         () => {
@@ -42,7 +42,7 @@ const navigate = useNavigate();
               photoURL:downloadURL,
             });
 
-            await setDoc(doc(db, "userCharts", res.user.uid), {});
+            await setDoc(doc(db, "userChats", res.user.uid), {});
             navigate("/");
           });         
         }
@@ -61,9 +61,9 @@ const navigate = useNavigate();
         <span className="logo">Man Cave Chat</span>
         <span className="title">Register</span>
         <form onSubmit={handleSubmit}>
-          <input type="text" placeholder="display name" autoComplete ="on"/>
-          <input type="email" placeholder="email" autoComplete ="on" />
-          <input type="password" placeholder="password" autoComplete ="on" />
+          <input type="text" placeholder="display name" />
+          <input type="email" placeholder="email"  />
+          <input type="password" placeholder="password"  />
           <input style={{ display: "none" }} type="file" id="file" />
           <label htmlFor="file">
             <img src={Add} alt="" />
